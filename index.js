@@ -15,8 +15,10 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
+function createMenuItem(name, price, category){
     /*Your code here*/
+    const obj = {name, price, category};
+    return obj;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -47,6 +49,13 @@ const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
+  discount: function(string){
+    if(string==='teacher' || string==='student'){
+      return burger.price*0.75;
+    }else if(string==='public'){
+      return burger.price*0.9;
+    }
+  }
   
 }
 
@@ -68,6 +77,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
+console.log(reviews[5]['feedback']);
 
 
 
@@ -92,8 +102,12 @@ Write a function that creates an object with name, rating, feedback, add the new
   4. should return the resulting array
 */
 
-function addReview(/*Your Code Here */){
+function addReview(array, name, rating, feedback){
   /*Your Code Here */
+  
+  const obj = {name, rating, feedback};
+  array.push(obj);
+  return array;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -107,8 +121,11 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
+function getReviewByIndex(array, num) {
   /*Your code here*/
+  const answer = `${array[num]['name']} gave the restaurant a ${array[num]['rating']} star review, and their feedback was: ${array[num]['feedback']}`;
+  return answer;
+  
 }
 
 
@@ -126,8 +143,11 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
+function getLastReview(objects) {
   /*Your code here*/
+  const last = objects[objects.length-1];
+  const string = `${last['name']} gave the restaurant a ${last['rating']} star review, and their feedback was: ${last['feedback']}`;
+  return string;
 } 
 
 
